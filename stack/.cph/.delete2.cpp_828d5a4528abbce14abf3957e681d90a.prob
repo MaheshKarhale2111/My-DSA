@@ -1,0 +1,1 @@
+{"name":"Local: delete2","url":"/media/mahesh/Coding1/Data Structures and Algorithms/stack/delete2.cpp","tests":[{"id":1647021396774,"input":"10\n0\n3\n5\n7\n9\n22\n29\n36\n43\n50","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"/media/mahesh/Coding1/Data Structures and Algorithms/stack/delete2.cpp","group":"local","local":true}

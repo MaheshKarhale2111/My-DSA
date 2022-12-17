@@ -1,0 +1,42 @@
+********** Analysis criterial for  Sorting Algorithm ******************
+
+1. Time complexity 
+2. Space complexity - The space Complexity of an algorithm is the total space taken by the algorithm with respect to the input size
+  -> Inplace sorting algorithm - Constant memory usagae, not growing with size 
+                                Mostly swaping, rearranging Algorithms
+3. Stability
+4. Internal vs External sorting algo 
+    -> Internal - All data loaded in memory
+    -> External - All data not loaded in memory 
+5. Adaptive - The sorting algorithms in which the order of elements affects the time complexity of the sorting algorithm
+             Aleady sorted data takes less time 
+6. Recursive or not Recursive 
+
+
+************** Bubble sort ****************************
+
+1. Output - increasing order 
+2.  Draw diagram 
+3. By doing first pass/iteration of Bubble sort , we get largetst element at end. 
+4. So in second iteration , we won't consider comparing last two elements as largetst element is already at end. 
+5. Same goes for third iteration 
+5. Thus for every pass/ iteration we having less pairs to compare. 
+6. For array of size n -> total comparisons are n(n-1)/2 thus O(n^2)
+7. As order is retained thus bubble sort is stable Algorithm. 
+8. Not a Recursive. 
+9. Not Adaptive - as even for already sorted algorithm it will perform same number of swapings 
+10. Inplace algorithm
+10. But it can be make into Adaptive O(n).
+11. Why Bubble sort ->  Bubbles in water rise up to the surface; similarly, the array elements in bubble sort move to the end in each iteration.
+    and heavier elements tends to sink at bottom same here, larger numbers tends place at end 
+12. use of bubble sort. 
+
+***************** Insertion sort ******************************
+
+
+
+
+***************** Selection sort *******************************
+1. Total number of comparisons 
+
+
