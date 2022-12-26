@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include <
 using namespace std;
 
 void printArray(int arr[], int n) {
@@ -11,27 +12,30 @@ void printArray(int arr[], int n) {
 }
 
 void bubbleSort(int arr[], int n) {
-    bool isSorted = false ; 
-  for (int i = 0; i < n - 1; i++) {
-    isSorted = true ; 
 
-    cout<<"Working on pass number"<<i+1<<endl; 
+  bool isSorted = false;
+  for (int i = 0; i < n - 1; i++) {
+    isSorted = true;
+
+    cout << "Working on pass number" << i + 1 << endl;
     for (int j = 0; j < n - i - 1; j++) {
       if (arr[j] > arr[j + 1]) {
         int temp = arr[j];
         arr[j] = arr[j + 1];
         arr[j + 1] = temp;
-        isSorted = false; 
+        isSorted = false;
       }
     }
-      if(isSorted){
-        return; // even after let say 5 passes if it is sorted it will return , no need to go till n-1 passes 
-      }
-
+    if (isSorted) {
+      return; // even after let say 5 passes if it is sorted it will return , no
+              // need to go till n-1 passes
+    }
   }
 }
 
+
 int main() {
+  
   int A[] = {2, 3, 1000, 4};
   int B[] = {1, 2, 5, 6}; // sorted array
   int n = sizeof(A) / sizeof(int);
