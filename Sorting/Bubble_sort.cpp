@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-#include <
 using namespace std;
 
 void printArray(int arr[], int n) {
@@ -8,6 +7,7 @@ void printArray(int arr[], int n) {
   for (int i = 0; i < n; i++) {
     cout << arr[i] << " ";
   }
+
   cout << endl;
 }
 
@@ -33,14 +33,14 @@ void bubbleSort(int arr[], int n) {
   }
 }
 
-
 int main() {
-  
+
   int A[] = {2, 3, 1000, 4};
   int B[] = {1, 2, 5, 6}; // sorted array
   int n = sizeof(A) / sizeof(int);
   printArray(A, n);
   bubbleSort(A, n);
   printArray(A, n);
+
   return 0;
 }

@@ -1,0 +1,14 @@
+1. Root, Parent, Child , Leaf/ External Node 
+2. Internal Node - Node with atleast one child 
+3. Depth : The depth of a node is the number of edges present in path from the root  to that node.
+4. Height : Vo node niche kaha tak utar sakta hai (deepest leaf)
+5. Sibling : NOdes belonging to same parent. 
+6. Ancestors and descendants : 
+
+********** Binary Tree **************** 
+
+1. Whereas in binary tree, each node can have at most two nodes.
+2. n nodes => n-1 Edges 
+3. Degreas -> no of direct children
+4. Degree if a tree us a highest degree of a node among all the nodes present. 
+5. 
