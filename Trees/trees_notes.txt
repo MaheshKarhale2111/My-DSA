@@ -1,4 +1,5 @@
 1. Root, Parent, Child , Leaf/ External Node 
+1. Tree is non lineear data structure. Ideal for representing hierarchical data. 
 2. Internal Node - Node with atleast one child 
 3. Depth : The depth of a node is the number of edges present in path from the root  to that node.
 4. Height : Vo node niche kaha tak utar sakta hai (deepest leaf)
@@ -11,4 +12,23 @@
 2. n nodes => n-1 Edges 
 3. Degreas -> no of direct children
 4. Degree if a tree us a highest degree of a node among all the nodes present. 
-5. 
+5. Use of binrary Tree ? 
+
+
+---------- Types of Binary Tree --------------------------------
+1. Full/ Strict Binary Tree : All nodes have either 0 or 2 chindren. 
+2. Perfect Binary Tree : Internal nodes have 2 children and all leaf nodes are on same level. 
+    Basically strict binary tree with all leaf nodes are on same level.
+3. Complete Binary Tree : 
+ A complete binary tree is a binary tree in which every level, except possibly the last, is completely filled,
+ and all nodes in the last level are as far left as possible. A perfect tree is therefore always 
+ complete but a complete tree is not necessarily perfect.
+4. Denerate Tree : Every Parent node has only one child.
+5. Skewed Tree : left side and right side 
+
+
+----------- Representation of binrary tree ------------------------------ 
+1. Array representation : Not used as while declaring array we need to give length of array 
+                          The absent child are represented as NULL. 
+2. Linked Representation : Not linked list!
+                           Make use of doubly linked list idea. 
