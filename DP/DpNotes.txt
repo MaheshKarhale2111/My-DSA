@@ -1,0 +1,6 @@
+Recursion is prerequisite for DP. 
+Two apporoaches : 
+1. Top -dow - recursion and memoization( storing values of subproblems)
+2. Bottom-up  - Tabulation 
+
+For fibonacci number problem - check the time and space complexity by both methods 

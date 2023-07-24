@@ -1,0 +1,3 @@
+1. Finding optimal solution at that moment, it might not be the best but best at that moment. 
+
+2. N meetings in one room  

@@ -32,3 +32,32 @@
                           The absent child are represented as NULL. 
 2. Linked Representation : Not linked list!
                            Make use of doubly linked list idea. 
+                           
+----------------------- LOve Babbar----------------------------------------------------------- 
+
+
+1. For non binary tree having multiple nodes- > 
+    node {
+        int data 
+        list<Node*> l; 
+    }
+2. Generally queues are used to travese the tree. this apporach known as breadth-first search(BFS). 
+3. Inorder / preorder / postorder traversal 
+4. LNR / NLR / LRN 
+5. Height of binaray tree question - > used recursiton to solve this 
+    Time complexity - O(N) as exactly N nodes are travesed 
+    Space complexity - See stack implementation of recursion.  
+                    - O (height of tree) 
+6. Diamter of Binary tree - Longest path between any two nodes 
+    ending nodes can be leaf nodes as well as root nodes 
+    2 methods to do one with the optimization
+7. Check for balance tree
+8. Zig zag tree 
+    visiting each node only once to time complexity is O(n) and same for space complexity
+9. boundary traversal 
+
+10. ?  What is use of inorder, preorder and postorder traversal 
+11. 
+9. vertical traversal of binaray tree 
+10. Top/ bottom  view of binaray tree 
+11. left/ right view of binaray tree

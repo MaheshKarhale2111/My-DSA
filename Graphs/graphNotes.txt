@@ -1,0 +1,193 @@
+1. Graph is type of data structure which is comibination of notes and edges. 
+2. Use to model wide range of real world scenarios like social network , computer networks 
+   transportation systems. 
+3. Undirected -  edge do not have specific direction , represent a simple connection between 
+   directed - edges have specific direction 
+4. Degree - number of edges - for undirected 
+5. Indegree and outdegree - for directed graphs 
+    Indegree - kitni edges meri taraf aa rahi hai 
+    outdegree - kitni edges mere se bahar ja rahi hai 
+6. Cyclic graph  
+7. Weighted graph - some weight on the edges 
+8. Adjacency matrix - represent conneciton in 2d array 
+9. Adjacency List - List representation of nodes mapping with neighbours 
+10. Adj matrix take more space comparetd to ad list . 
+11. time complexity  and space complexity are N X N where N is number of nodes 
+12. For adj list - N +e ->why ?  
+    for worst case - Nsquare 
+
+--------------------------------------------------------------------------- 
+BFS Traversal  - Breadth first search 
+vector<int> adj[] is matrix of type vector<int> 
+also if ans asked in sorted order then use set to store values instead of using vector and sorting it 
+method : 
+1.Prepare adj list if not given  
+2. Prepare a map of node value mapping to the bool visited or not 
+3. prepare a queue and pull out front node 
+4. pop out front node 
+5. mark front node data as true 
+6. print the node 
+6. push front node ke edges into queue and while pushing check if they are marked true 
+
+----------------s---------------------------------------
+
+DFS - Depth First Search 
+
+
+----------------------------------------------------------
+Cycle detection in undirectional graph 
+cycle Detection in directional graph - I am getting TLE on gfg while same code logic accpeted on codeNinja ) 
+So I replaced unordered_maps with vectors which solved the TLE issue 
+
+
+---------------------------------------------------------------
+
+Topological sort - 
+DAG - directed Acyclic graph 
+Topological sort - linar ordering of vertices such that for every edge u-v, u always appears before v in that order. 
+There can be more than one topological sorting for a graph
+Explain why it's not valid for cyclic graph. - we can use it for cycle detection as well 
+basically humne stack me aisi node dal di hai jisse aage propagate karna possible nahi hai. and we know it is gonna come out of stack at the end. 
+
+-----
+Topological sort using BFS - Kahn's algorithm 
+This algo uses fact than in DAG there will be at least one node whose indegree will be zero and one node whose outdegree will be zero. 
+This logic can be helpful to check DAG or not. 
+We will be using indegree array instead of isVisited array 
+A question can be asked to make topo order on paper  
+** Must watch -> https://youtu.be/cIBFEhD77b4 -> also try watching it's playlist on graph theory. 
+
+There are many real world situations can be modeled as a graph with directed edges where some events must occur before others, for instance :  
+ program build dependencies, college class prerequisties , event scheduling, assembly instructions 
+ 
+ Kahn algo -> Rpeatedly remov nodes without any dependencies from the graph and add them to the topological ordering. 
+	As nodes without dependencies and their outgoing edges are remove from the graph , new nodes without dependencies should become free. 
+	
+ 
+ -------------------
+ Cycle detection using BFS in directed graph - 
+ Use kahn's algorithm. Instead of storing the nodes in topological order, just increament the count. If count == number of nodes then no cycle present, otherwise cycle is present. 
+ 
+ 
+ -----------------------------------------------------------------------------------------------------------------------------------------------
+ Shortest Path in Undirected Graph 
+ Source and destination will be given and find shortest path. 
+ Given that the weight of each edge is same. 
+ -> We need to use BFS approach
+ 
+ ---------------------------------------------------- 
+ BFS vs DFS explantion 
+ In bfs we explores a vertex fully and then only jump to next vertex for exploration. 
+ in dfs once we find a new vertex which is unvisited then we will suspend old vertex and start exploration of new one. 
+ DFS for tree is preorder. 
+
+ ------------------------------------------------------ 
+ Analyzing time complexity 
+
+        queue<int> q; 
+        q.push(node); 
+        visited[node] = true; 
+        
+        while(!q.empty()){
+            int frontNode = q.front(); 
+            q.pop(); 
+            
+            ans.push_back(frontNode); 
+            
+            for(auto i : adj[frontNode]){
+                if(visited[i] == false){
+                    q.push(i);
+                    visited[i] = true;
+                }
+            }
+        }
+
+We know each node gonna visited at most once. so O(V) and the for loop inside the while loop gonna called for 
+number of edges we have to O(E) so total O(V+ E); 
+
+ ------------------------------------------------------------------------------------------------------------ 
+Dijkstra's algorithm 
+
+Find shortest path between src and other nodes in weighted graph 
+So let say nodes represent citites and eadges represtent roots and weight represetn time or trafic 
+
+Not useful in grahs with negative weights - see striver 
+as the value keep on decreasing due to negative weights 
+Time complexity is ElogV where E is number of edges and V is number of vertices 
+Priority queue and set is used for this 
+Try implementing by prioirty queue 
+
+Why not queue ? 
+It's possible but time complexity is more 
+We want to deal with minimum distance of shortest path at every step 
+because we don't want to encouter and explore unnecessary paths which doesn't lead us to answer 
+So using queue is like brute force method. Going through all paths and finding shortest path 
+While set or pq is like greedy method. we want minimal at every step. 
+
+Derivation of extreme case time complexity ElogV 
+See striver https://youtu.be/3dINsjyfooY  ---> Must watch 
+
+
+------------------------------------------------------------------------ 
+
+Prims algorithm - 
+To find minimum spanning tree 
+What is spanning tree ? - 
+- Convert graph to tree such that there are no cycles and every node is connected - good network 
+- only one unique path between any pair of vertices 
+- minimum edges - n-1 edges for n nodes. If we remove an edge 
+ it will no longer connect all the vertices. 
+
+uses ? - as we know it is bascialy a acyclic graph with unique paths. 
+ so used to eliminate loops. Let say we want to transeer a data 
+ let say we have a network topology. So wen don't want our data packets 
+ to circulate in loops and create a braodcast storm. which will consume unwanted  bandwitdth. 
+
+There can be multiple spanning tree of same graph. 
+Minimum spanning tree is one with minimum total cost of weight.  
+
+------------------------ 
+Prims algo to find minimum spanning tree 
+Try to write a explanable text 
+
+----------------------
+bellman ford algorithm 
+
+- used to find minimum distance from source node 
+- bellman ford can handle negative weight unlike dijkstra's algo 
+- given that graph should not have negative cycle - ghumate reh jao ge and we will never find a shortest path due to continuous decrement in path value 
+- we can't find shortest path using bellma ford but we can find if negative cycle is present or not 
+- in this algo we perform a operation totoal n-1 time over all edges 
+- so task 1 = checking over all edges - o(E) and task1 perfom n-1 times so o(V*E) 
+- after n-1 times - perform once again and this time if aur answer changes then negative cycle is present  
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
