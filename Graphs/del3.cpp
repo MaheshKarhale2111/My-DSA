@@ -1,38 +1,54 @@
+#include <bits/stdc++.h>
+using namespace std;
 
-   bool dfs(int node,  vector<bool> isVisited, 
-    vector<bool> dfsVisited, vector<int> adj[]) {
-    isVisited[node] = 1;
-    dfsVisited[node] = 1;
+void solve(){
+    int n; 
+    cin>>n ; 
+    vector<int> vec; 
 
-    for (auto i : adj[node]) {
-       
-        if (!isVisited[i]) {
-            if (dfs(i, isVisited, dfsVisited, adj)) {
-                return 1;   
-            }
-        } else if (dfsVisited[i] == dfsVisited[node]) {
-            return 1;
-        }
+    for (int i = 0; i < n; i++)
+    {
+        int temp; 
+        cin>>temp; 
+       vec.push_back(temp); 
     }
 
-    dfsVisited[node] = 0;
-    return 0;
-}
-
-bool isCyclic(int V, vector<int> adj[]) {
-    // unordered_map<int, bool> isVisited;
-    // unordered_map<int, bool> dfsVisited;
-    vector<bool> isVisited(V,0) ; 
-    vector<bool> dfsVisited(V,0); 
-
+    // covert to base of 10 
     
-    for (int i = 0; i < V; i++) {
-        if (!isVisited[i]) {
-            if (dfs(i, isVisited, dfsVisited, adj)) {
-                return true;
-            }
-        }
-    }
 
-    return false;
+    __int128 num = 0; 
+
+    for(int i = 0; i< n; i++){ 
+        num = num + vec[i]*pow(2,i); 
+    }
+    // cout<<num;
+
+    // convert to base of 6 
+
+    vector<int> ans; 
+
+    while(num >= 6){
+        // cout<<num<<endl;
+        int rem = num %6;
+         num = num/6  ;
+         ans.push_back(rem); 
+    }
+    ans.push_back(num); 
+
+    // return ans;
+
+    for(auto i : ans){
+        cout<<i<<" "; 
+    }    
+    cout<<endl;
+    
+}
+int main(){
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    int t;
+    cin >>t;
+    while(t--) solve();
+    return 0;
 }

@@ -1,0 +1,1 @@
+1. Number of substrings possible = n(n+1)/2

@@ -16,8 +16,9 @@ int partition(int arr[], int low, int high) {
   int j = high;
 
   // Jab tak pivot se bada element nahi milata , i ko increment karo
-  // or jab tak element pivot se chota tai tab tak increment karo
+  // or jab tak element pivot se chota tai tab tak j ko increment karo
   // aur bada milane pe loop rook jao
+  
 
   do {
 

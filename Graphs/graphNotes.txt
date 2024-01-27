@@ -1,6 +1,9 @@
 1. Graph is type of data structure which is comibination of notes and edges. 
 2. Use to model wide range of real world scenarios like social network , computer networks 
    transportation systems. 
+3. A tree is a connected graph that consists of n nodes and n−1 edges. There is
+a unique path between any two nodes of a tree
+
 3. Undirected -  edge do not have specific direction , represent a simple connection between 
    directed - edges have specific direction 
 4. Degree - number of edges - for undirected 
@@ -49,13 +52,20 @@ There can be more than one topological sorting for a graph
 Explain why it's not valid for cyclic graph. - we can use it for cycle detection as well 
 basically humne stack me aisi node dal di hai jisse aage propagate karna possible nahi hai. and we know it is gonna come out of stack at the end. 
 
+Approach 1 -  using vector and trace down the last leaf node you can get and push back to vector. And reverse vector at the end 
+
+Approach 2 - using kan's agorithms
+
 -----
 Topological sort using BFS - Kahn's algorithm 
+How to get dressed is best example 
 This algo uses fact than in DAG there will be at least one node whose indegree will be zero and one node whose outdegree will be zero. 
 This logic can be helpful to check DAG or not. 
 We will be using indegree array instead of isVisited array 
 A question can be asked to make topo order on paper  
 ** Must watch -> https://youtu.be/cIBFEhD77b4 -> also try watching it's playlist on graph theory. 
+
+
 
 There are many real world situations can be modeled as a graph with directed edges where some events must occur before others, for instance :  
  program build dependencies, college class prerequisties , event scheduling, assembly instructions 
@@ -119,13 +129,18 @@ Try implementing by prioirty queue
 
 Why not queue ? 
 It's possible but time complexity is more 
-We want to deal with minimum distance of shortest path at every step 
+We want to deal with minimum distance of shortest path at every step - greedy apporach 
 because we don't want to encouter and explore unnecessary paths which doesn't lead us to answer 
 So using queue is like brute force method. Going through all paths and finding shortest path 
 While set or pq is like greedy method. we want minimal at every step. 
 
 Derivation of extreme case time complexity ElogV 
 See striver https://youtu.be/3dINsjyfooY  ---> Must watch 
+
+Understanding ElogV 
+- for each node, we have to push and erase from set , which take logV time at max 
+- we have to repeat this action for E edges 
+- So ElogV 
 
 
 ------------------------------------------------------------------------ 
@@ -137,6 +152,8 @@ What is spanning tree ? -
 - only one unique path between any pair of vertices 
 - minimum edges - n-1 edges for n nodes. If we remove an edge 
  it will no longer connect all the vertices. 
+ 
+ A complete undirected graph can have n^(n-2) number of spanning trees where n is the number of vertices in the graph. Suppose, if n = 5, the number of maximum possible spanning trees would be 5^(5-2) = 125.
 
 uses ? - as we know it is bascialy a acyclic graph with unique paths. 
  so used to eliminate loops. Let say we want to transeer a data 
@@ -150,17 +167,31 @@ Minimum spanning tree is one with minimum total cost of weight.
 Prims algo to find minimum spanning tree 
 Try to write a explanable text 
 
+
+Abdul bari video must watch - https://www.youtube.com/watch?v=4ZlRH0eK-qQ&ab_channel=AbdulBari
+
+Approach of prim - 
+1. Initially you can select a smallest edge or any random edge and start building upon it
+2. Then always select connected smallest one which is not visited, 
+
+Dijkstra's algorithm can work on both directed and undirected graphs, but Prim's algorithm only works on undirected graphs.
 ----------------------
 bellman ford algorithm 
 
 - used to find minimum distance from source node 
 - bellman ford can handle negative weight unlike dijkstra's algo 
 - given that graph should not have negative cycle - ghumate reh jao ge and we will never find a shortest path due to continuous decrement in path value 
-- we can't find shortest path using bellma ford but we can find if negative cycle is present or not 
+- If negative cycle is present we can't find shortest path using bellma ford but we can find if negative cycle is present or not 
 - in this algo we perform a operation totoal n-1 time over all edges 
 - so task 1 = checking over all edges - o(E) and task1 perfom n-1 times so o(V*E) 
 - after n-1 times - perform once again and this time if aur answer changes then negative cycle is present  
 
+ ------------------------------------------------------------------------------- 
+ ----Kruskal's Algorithm : 
+ -----------Disjoint Set : 
+ - Whenever we wan't to merge two trees , we merge shorter tree to larger tree. 
+ -
+ 
  
  
  

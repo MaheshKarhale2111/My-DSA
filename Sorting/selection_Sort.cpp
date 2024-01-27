@@ -11,6 +11,9 @@ void printArray(int arr[], int n) {
 }
 
 void selectionSort(int arr[], int n) {
+  // what selection sort basically do is 
+  // pickup the smallest element at fix it at it's position 
+  // that's it , it select and drop at it's location
   int min, j, minIndex;
 
   for (int i = 0; i < n - 1; i++) {
@@ -23,9 +26,9 @@ void selectionSort(int arr[], int n) {
       }
     }
 
-    printArray(arr, n);
-    cout << min << " " << minIndex << endl;
+    // cout << min << " " << minIndex << endl;
     swap(arr[minIndex], arr[i]);
+    printArray(arr, n);
   }
 }
 

@@ -1,0 +1,71 @@
+1. Check binary addition and subtraction 
+    1+1 = 10 , 1+1+1 = 11 
+2. subtracing in binary equivalent to adding inverse 
+    12-5 == 12+ (-5) 
+    for finding inverse we use 2's complement method 
+3. 2's complement - invert all bits and add 1 
+4. note that while inverting - all bits before actual number are acully 0 so after invering it becomes 1 
+5. & is a bitwise operator and compares each operand bitwise.
+    It is a binary AND Operator and copies a bit to the result if it exists in both operands.
+    Assume integer variable A holds 60 and variable B holds 13 then  
+    (A & B) will give 12 which is 0000 1100.
+    Whereas && is a logical AND operator and operates on boolean operands. If both the operands are true, then the condition becomes true otherwise it is false. Assume boolean variable A holds true and variable B holds false then (A && B) is false.
+    & is to be used during bitwise operations and && is useful during logical operations.
+6. Xor (^) - when both bits are different then it is 1 otherwise 0 
+7. The ~ (bitwise NOT) takes one number and inverts all bits of it.
+8. The << (left shift) takes two numbers, the left shifts the bits of the first operand, and the second operand decides the number of places to shift. 
+9. The >> (right shift) takes two numbers, right shifts the bits of the first operand, and the second operand decides the number of places to shift. 
+10. the right shifing by 1 is equivalent to dividing number by 2 
+    10 >> 1 -> 1010 >> 1 -> 0101 = 5 
+11. How to check even odd - > the last bit of even is 1 and for odd it's zero 
+    make sense as other bits only gives power of 2's which adds up to even number only 
+    so the last bit which is equivalent to '1' decides it's off or even 
+12. bit masking to find odd even 
+    if(a&1 == 0) -> odd 
+    if(a&1 == 1) -> even 
+13. To swap two numbers a and b-
+    a = a ^ b ; 
+    b = a ^ b ; 
+    a = a ^ b ; 
+
+-------------------------------------------------------------------------------------------------------------------------- 
+
+1. Bitmasking - imposing mask over the bits. to keep, change, or remove a desired part of information 
+2. use of bitmasking - In computer graphics, bitmasking is used to alter pixels and run various operations on images.- insta filters 
+3. Bitmasking increases code complexity and decreases the ease of read . 
+4. Find , set and clear ith bit - watch anuj bhaiys's second video 
+5. number of bits in binary representation of number = log2n + 1 
+
+
+5. Find number of bits to change to convert from a to b 
+    concept 1 : The xor operator only activates when two bits are different 
+        eq. 9 and 3 - 1001 and 0101 -> so 9^3 -> 1111 - > now we have to find number of 1's in this ans 
+    concept 2 :  number we have is 1111 -> right shift the number till it becomes 0 
+        and while right shifing check if it's odd or even means uska last bit 1 hai ya 0 hai and count++
+        this loop run for log2n + 1 times 
+    better approach : 
+        if given number is n then find n & (n-1) till it becomes '0' 
+        this one operation make the last significant set bit = 0 
+        so this loop will run for number of set bits in binary representation 
+        set bit is basically '1' 
+
+
+------------------------------------------------------------------------------------------------------------ 
+
+Advance bit manipulation 
+
+1. a^a = 0
+2. 0^a  = a
+
+Q. find the only non repeating element in array where every element repeats twice 
+   we know xor of number with itself equals zero. so if we do combined xor of all elements in array 
+   all other elements with pairs will cancel each other givning zero except one single element remains which will be our ans 
+
+Q. find the two non repeating elements in array where every element repeats twice 
+	https://www.youtube.com/watch?v=PnxTnKT0GUE&ab_channel=NerdStore 
+	must !!!
+
+
+Q. find rightmost set bit - > 
+	n & ~(n-1) 
+    

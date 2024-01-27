@@ -13,6 +13,18 @@ void printArray(int arr[], int n) {
 
 void bubbleSort(int arr[], int n) {
 
+
+
+// this code is okay but we know after first pass the largest element is at
+  // end so we don't need to compare the last element so the second loop stop st
+  // n - i - 1 for(int i = 0 ; i < n ; i++){
+  //     for( int j = 0 ; j < n - 1 ; j++) {
+  //         if(arr[j] > arr[j+1])
+  //             swap(arr[j], arr[j+1]);
+  //     }
+  // }
+
+  
   bool isSorted = false;
   for (int i = 0; i < n - 1; i++) {
     isSorted = true;

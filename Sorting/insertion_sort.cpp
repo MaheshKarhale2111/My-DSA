@@ -17,12 +17,17 @@ void insertionSort(int arr[], int n) {
     key = arr[i];
     //     for (int j = i - 1; j >= 0; j--) {
     //       if (key < arr[j]) {
+              
     //         int temp = arr[j + 1];
     //         arr[j + 1] = arr[j];
     //         arr[j] = temp;
     //         counter = counter + 1;
     //       }
     //     }
+
+    // for loop solution doesn't work here 
+    // we want to decrease 'j' only when key < arr[j]
+    // for for loop it boils down to the 0th index everytime 
 
     j = i - 1;
     while (key < arr[j] && j >= 0) {

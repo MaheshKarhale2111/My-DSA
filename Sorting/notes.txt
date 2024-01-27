@@ -22,7 +22,7 @@
 5. Same goes for third iteration 
 5. Thus for every pass/ iteration we having less pairs to compare. 
 5. The second loop in bubble sort goes from 0 to n - i -1
-6. For array of size n -> total comparisons are n(n-1)/2 thus O(n^2)
+6. For array of size n -> total comparisons are[(n-1), (n-2), (n-3),... 1 ] =  n(n-1)/2 thus O(n^2)
 7. As order is retained thus bubble sort is stable Algorithm. 
 8. Not a Recursive. 
 9. Not Adaptive - as even for already sorted algorithm it will perform same number of swapings 
@@ -31,6 +31,9 @@
 11. Why Bubble sort ->  Bubbles in water rise up to the surface; similarly, the array elements in bubble sort move to the end in each iteration.
     and heavier elements tends to sink at bottom same here, larger numbers tends place at end 
 12. use of bubble sort. 
+    Easy to understand - sorting can be started from this - and small system - small fixed data then useful 
+13. Try Recursive approach of bubble sort 
+
 
 ***************** Insertion sort ******************************
 1. First loop in insertion sort starts from i = 1; 
@@ -47,10 +50,18 @@
 
 
 ***************** Selection sort *******************************
-1. Total number of comparisons 
+1. Total number of comparisons -same - n(n-1)/2
+2. Selection sort is not stable. doesn't maintain order 
+    eg. Input : 4A 5 3 2 4B 1
+    Output : 1 2 3 4B 4A 5
+3. Selection sort can be made stable if we shift the elements instaed of swaping them 
+4. Selection sort as name suggest it selects the element and put it at it's appropriate location in sorted array. 
+
 
 ****************** Quick Sort ***********************************
 
 1. In quick sort we chose a pivot element and make sure that that pivot element finally ends up in 
  position such that all elements left to it are less than pivot while all elements left to it are bigger than pivot. 
  2. This means the pivot element is at it's final sorted postion now. We don't need to move it. 
+ 3. quick sort works on divide and conquer concept - once asked in test. 
+ 4.
