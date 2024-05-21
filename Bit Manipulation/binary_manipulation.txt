@@ -1,7 +1,17 @@
+Why need bit manipulation? 
+As as programmer we deal with data. if it's an integer it's stored in data container called as 'int' in cpp, if it's decimal then we store it in float or double. if data is complex then graphs , linkedlist and so on. But if programmer wants to go in deeper level of manipulation , something which is closer to system. Then he has to deal with bits and bytes. 
+eg. Operations with bits used in data compression. Data encryption ( Exclusive-or Encryption).In order to encode, decode or compress files we have to extract the data at bit level. Bitwise Operations are faster and closer to the system and sometimes optimize the program to a good level.
+Encoding - transforming data in specific format for storage,or sharing(transmission) 
+In microcontrollers - when the output is high it's 1 and if it's low then it's 0. 
+
+
+
+
 1. Check binary addition and subtraction 
     1+1 = 10 , 1+1+1 = 11 
 2. subtracing in binary equivalent to adding inverse 
     12-5 == 12+ (-5) 
+
     for finding inverse we use 2's complement method 
 3. 2's complement - invert all bits and add 1 
 4. note that while inverting - all bits before actual number are acully 0 so after invering it becomes 1 
@@ -13,8 +23,8 @@
     & is to be used during bitwise operations and && is useful during logical operations.
 6. Xor (^) - when both bits are different then it is 1 otherwise 0 
 7. The ~ (bitwise NOT) takes one number and inverts all bits of it.
-8. The << (left shift) takes two numbers, the left shifts the bits of the first operand, and the second operand decides the number of places to shift. 
-9. The >> (right shift) takes two numbers, right shifts the bits of the first operand, and the second operand decides the number of places to shift. 
+8. The << (left shift) takes two numbers, the left shifts the bits of the first operand, and the second operand decides the number of places to shift. Left shift is equivalent to multiplying the bit pattern with 2^k.
+9. The >> (right shift) takes two numbers, right shifts the bits of the first operand, and the second operand decides the number of places to shift. Right shift is equivalent to dividing the bit pattern with 2^k
 10. the right shifing by 1 is equivalent to dividing number by 2 
     10 >> 1 -> 1010 >> 1 -> 0101 = 5 
 11. How to check even odd - > the last bit of even is 1 and for odd it's zero 
@@ -23,6 +33,21 @@
 12. bit masking to find odd even 
     if(a&1 == 0) -> odd 
     if(a&1 == 1) -> even 
+12. Checking odd even with XOR operator -  when we do xor with 1, if number if odd then it's decreased by 1 and if it's even its increased by 1
+9^1 = 8 and 10^1 = 11 
+if ((n ^ 1) == (n + 1))
+        return even;
+else it's odd
+12. Checking with OR Operator -  bitwise OR Operation of the Number by 1 increment the value of the number by 1 if the number is even otherwise it will remain unchanged.
+	if ((n | 1) > n)
+        return even;
+        else odd
+12. By using left and right shift - we know left shift mutiply number by 2 and right shift divide number by 2. 
+	So if we have even number multiplying and dividing number by 2 won't change anything but for odd number if we divide by 2 and then multiply by 2 it will change. This we can use to determine odd/even. 
+	if ( ( num >> 1) << 1 == num) {
+    	even number
+	} else odd number
+  
 13. To swap two numbers a and b-
     a = a ^ b ; 
     b = a ^ b ; 
@@ -35,7 +60,20 @@
 3. Bitmasking increases code complexity and decreases the ease of read . 
 4. Find , set and clear ith bit - watch anuj bhaiys's second video 
 5. number of bits in binary representation of number = log2n + 1 
+log2n is basically how many times you have halve the 'n' number . So number of bits in number is equal to how many times you can halve the number + the remainder.
 
+------------------------------------------------------------------------------------------------------------------------------ 
+
+Find number of bits in number 
+Method 1 : use formula log2n + 1 
+Method 2 : use left shift operator 
+	int n; 
+	int count = 0; 
+	while( n) {
+	n = n>>1; 
+	count++; 
+	}
+---------------------------------------------------------------------------------------------------------------------------------
 
 5. Find number of bits to change to convert from a to b 
     concept 1 : The xor operator only activates when two bits are different 

@@ -17,3 +17,9 @@ Questions :
 1. peak in mountain 
 2. minimum and maximum index of element in array 
 3. 
+
+
+Binary search for matrix 
+
+first fix row by doing mat[i][0] and mat[i][n] limits 
+then once row is fixed you can use binary search on selected row
