@@ -1,0 +1,84 @@
+Encapsulation 
+- Wrapping up data and information in single unit or bundle data and methods into easy to use units. 
+
+- Full Encapsulation - where all members are private
+Adv - 
+- Data hiding (marking private) - security
+- read only access 
+- code resusability and maintenance
+- unit testing 
+- https://www.geeksforgeeks.org/encapsulation-in-cpp/ read 
+
+
+--------------------------------------------------------------------- 
+
+INHERITANCE 
+- write class human and inherit it's properties to male and female class 
+- public/private/protected are called access modifiers as well as mode of inheritance - imp remeber 
+- // symtax -> class {classname} : {public/private/protected} {parentclassname}
+- refer table of inheritance for understanding 
+- What is protected 
+    - Work similar to private i.e. it can't be accesed outside class 
+    - but accesseble with help of friend class or derived class
+- Private data member cannot be inherited
+- Private members of the base class are not accessible by the derived class, though they are still present in the derived class.
+- Private: Only accessible within the same class (and friends). Not accessible by derived classes.
+- Protected: Accessible within the same class and by derived classes, but not accessible outside the class hierarchy.
+
+
+TYPE OF INHERITANCE 
+- Single inheritance - one parent one child 
+- Multilevel - higher hierarchy - Animal -> Dog -> German Shepard 
+- Multiple - C is inherited from A and B 
+- eg. class C : public A, public B 
+- Hierachical inheritance - one parent multiple childs
+- Hybrid inheritance - combination of more than one type of inheritnace eg. multiple + Hierachical 
+
+Inheritance ambiguity
+- say class C is derived from class A and B. Class A and B has function with same name then? 
+- this creates ambiguity for C. To solve this use scope resolution operator 
+- say male is object of C. then male.A::func() and male.B::func()
+
+--------------------------------------------------------------------- 
+
+POLYMORPHISM 
+- poly - multi, morphi - forms -> multiple forms
+- In a real-life example of polymorphism, a person at the same time can have different roles to play in life. Like a woman, at the same time is a mother, a wife, an employee and a daughter. 
+- compile time polymorphism, run time polymorphism
+
+
+Compile time polymorphism - function overloading 
+- multiple functions with same name but different parameters 
+-  Functions can be overloaded by changing the number of arguments or/and changing the type of arguments. In simple terms, it is a feature of object-oriented programming providing many functions 
+   that have the same name but distinct parameters when numerous tasks are listed under one function name. 
+- Function overloading is primarily based on:
+Number of parameters.
+Types of parameters.
+Order of parameters.
+- Note than function overloading can't be achieved by changing return type 
+- check function overloading in inheritance 
+
+
+operator overloading 
+- operator se custom kam karvana. eg. + operator se substract karna 
+- Redefining the meaning of operators really does not change their original meaning; instead, they have been given additional meaning along with their existing ones.
+- eg. use + operator to add two complex numbers ( see .cpp file)
+
+
+Run time polymorphism - function overriding 
+- function name shd be same 
+- no. of argument shd be same 
+- inheritance is importnat ( obv)
+
+--------------------------------------------------------- 
+
+Abstraction - implementation hiding 
+- Abstraction means displaying only essential information and ignoring the details. Data abstraction refers to providing only essential information about the data to the outside world, ignoring unnecessary details or implementation.
+- Consider a real-life example of a man driving a car. The man only knows that pressing the accelerator will increase the speed of the car or applying brakes will stop the car but he does not know how on pressing the accelerator the speed is actually increasing, he does not know about the inner mechanism of the car or the implementation of the accelerator, brakes, etc in the car. This is what abstraction is.
+- Abstraction in Header files
+One more type of abstraction in C++ can be header files. For example, consider the pow() method present in math.h header file. Whenever we need to calculate the power of a number, we simply call the function pow() present in the math.h header file and pass the numbers as arguments without knowing the underlying algorithm according to which the function is actually calculating the power of numbers.
+- in classes we can use private to hide 
+- Advantages 
+    - only you can make changes to your data or function 
+    - It makes application secure by not allowing anyone else to see background details 
+    - avoid dupilcation of code

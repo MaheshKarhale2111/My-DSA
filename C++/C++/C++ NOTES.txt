@@ -1,0 +1,242 @@
+1. << Is called Insertion operator.
+2.>> Extraction operator
+3.PS E:\CODING\K.MAHESH C++> g++ .\tut5.cpp
+PS E:\CODING\K.MAHESH C++> .\a.exe
+to run terminal
+4.Open header file by ctrl + click
+5. Alt + arrows to shift rows
+6.\n and <<endl used to brake lines
+7. To print gobal variable <<::c
+c is global variable lecture #7
+8. By default any decimal numbr is double 
+eg. 34.4 is considered as double by compiler 
+but if we have to pass it as a float...     make number like 34.4f.
+same for 34.4l for long double lecture #7 even we can use 34.4F and 34.4L 
+9.typecasting 
+float(a) is same as (float)a
+# lecture 8
+to assign a fix value we use const int a =3
+setw operator and endl are commonly used manipulators in c++
+operator precednce cppreference.com..... dont apply bodmas rule2
+#lecture#13
+pointer arithmetic 
+address new = address old + i*sizeof deta type
+where address new is p+i
+          address continue is i
+in case of pointers and arrays we dont use & to get address 
+main(){
+    int marks [4] = {21, 23, 56, 67};
+    int* p= marks;
+here using &marks is wrong
+
+#lecture 14
+1. Structures used to store different types of datas.
+unlike arrays which is used to store same kind of data.
+we can use typedef struct employee{} ep;
+this means where we were using struct employee we can use simple ep.
+we can chose any instead of ep.
+
+Common mistake in coding 
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int a, b,sum, minus;
+    
+    sum = a + b;
+    minus = a - b;
+    
+    cout << "Enter value of a" << endl;
+    cin >> a;
+    cout << "Enter value of b" << endl;
+    cin >> b;
+
+    cout << "sum is " << sum << endl;
+    cout << "Subtraction is " << minus << endl;
+
+    return 0;
+}
+here this programme will not give expected answers as inout is taken after and operation is
+done before
+_________________________________________________________________________.
+
+#include<iostream>
+using namespace std;
+
+int main(){
+    char input, alphabet='A';
+    alphabet++;
+    cout<<alphabet;
+    return 0;
+}
+Out put of this is B.
+ 
+___________________________________________________________________________________
+Lecture 15 
+
+1. What do you mean by return 0
+it means that program is executed successfully 
+
+
+
+
+____________________________________________________________________________________
+
+  int num1, num2;
+    cout << "Enter nums ";
+    cin >> num1, num2;
+What is mistake in above???
+It should be cin>>num1>>num2;
+
+________________________________________
+# note that x%y is only used for integers
+it is pronounced as x modulus y and not x percentage y
+_______________________________________________
+We use a getch() function in a C/ C++ program to hold the output screen for some time until the 
+user passes a key from the keyboard to exit the console screen. Using getch() function,
+ we can hide the input character provided by the users in the ATM PIN, password, etc. Syntax: int getch(void);
+_________________________________________________________________________________________ 
+
+
+The isalpha() function checks whether the character entered is an alphabet or not. If it is not, it prints an error message.
+char c;
+
+if (!isalpha(c))
+      printf("Error! Non-alphabetic character.");
+______________________________________________________________________________________________
+Statement: a logical unit of instruction/command
+Program : declarations and one or more statements
+assignment statement
+selection statement
+repetitive statements
+function calls etc.
+All statements are terminated by semicolon ( ; )
+Note: In C, semi-colon is a statement terminator
+rather than a separator!
+________________________________________________________________________________________________
+# tut 22
+
+c++ initially called as C with classes by stroustroup
+class extension of structures (in C)
+
+You can declareobjuests along with the class declaration like this:
+class employee{
+ class defination 
+} harry, mahesh, rohan;
+
+_______________________________________________________
+
+#Tut 22
+#include<iostream>
+#include<string>
+using namespace std;
+
+int main(){
+    string s;
+    int i=3;
+
+    cin>> s;
+    cout<<s.at(1); 
+    cout<<s.at(2); 
+    cout<<s.at(3); 
+
+    return 0;
+}
+
+note that st function is string function which will give what is at that point
+say at(1) they it will print what number/ charcter at position 2 of string 
+coz the number reading of cpp starts from 0
+
+
+
+Note --> while taking multiple inputs from scanf don't give a space at end 
+like scanf("%d %d") use this
+scanf("%d %d ") dont use this as it will promt for another input or I don know  
+
+_______________________________________________________________________________
+
+Note if the addresss is like 0x61fe08 this is address in hexa decimal format 
+hexadecimal format consits of 16 characters.10 numbers and 6 letters
+
+-----------------------------------------------------------------------------------------------------------------
+
+ we can use priintf in c++ video number 67 c++ cwh
+______________________________________________________________________________
+
+vey very important 
+ swap by pointers -->void swapointer(int *a, int *b);
+                                     swapointer(&x, &y); // function callling 
+swap by reference --> swapref(int&a, int&b)
+		 swapref(x,y);              // function calling 
+______________________________________________________________
+note swap function is already available in c++ so dont use it
+_____________________________________________________________
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

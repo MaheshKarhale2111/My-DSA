@@ -1,0 +1,119 @@
+Why oops? 
+In real life each object has entity which has state/property and behaviour. 
+We want to increase relability of code and make it close to real life. 
+
+What is class 
+User defined datatype
+
+What is object? 
+Instance of class
+
+- In case of empty object, the memory allocated to object is 1byte, why? To keep track of it. 
+- if it's not empty then memory allocated is equal to size of content inside it 
+    - for eg. if class Hero only has int value. Then size of Hero H1 is 4 bype ( size of int)
+- you can also do "#include Hero.cpp" to import class written at external file 
+
+Access Modifiers? 
+- Indicates where the data member is accesible. In class of outside the class. 
+- By default data memeber is private. 
+- Public private and protected 
+- Private values cannot be accessd or modified. So we use getter and setter functions. 
+
+Padding and greedy alignment 
+- padding is the addition of some empty bytes of memory in the structure to naturally align the data members in the memory. 
+  It is done to minimize the CPU read cycles to retrieve different data members in the structure.
+- Greedy alignment refers to the practice of arranging the members of a structure or class in such a way that padding is minimized. By placing members with
+  larger alignment requirements before those with smaller alignment requirements, you can potentially reduce the amount of padding required.
+- In languages like C++, where memory layout has a significant impact on performance due to cache lines and memory access patterns, arranging members to
+  minimize padding can lead to better memory utilization and potentially improved runtime efficiency.
+- https://www.geeksforgeeks.org/structure-member-alignment-padding-and-data-packing/
+- https://medium.com/@xsankalp13/padding-and-greedy-alignment-d2e3a843c35
+
+Dynamic allocation 
+- Hero *b = new Hero; 
+- poiner b is pointing to heap memory who is storing an object of Hero. 
+- To dereferrence we use b->health. 
+
+
+Constructor 
+- by default constructor is created even if you don't mention it specifically. 
+
+This keyword 
+- 'this' keyword stores address of current object 
+-  Hero(int health) {
+     health = health; 
+}
+- This won't work as it's like putting value of health into health again, due to variable scoping(read); 
+- what we want't to do is store value of local health to value of headh of object. 
+- we use 'this' keyword. 
+- this->health = health
+- again vimp -> this keyword stores address of current object. 
+
+copy constructor 
+- Copy constructor is generated inbuilt with initilization of object.
+- Hero ramesh(suresh) or Hero ramesh = suresh; 
+- values of suresh is copied to ramesh. 
+- you can write your own copy constructor, ensure you pass by ref in copy constructor. Copy by value creates infinite loop of coping 
+- see -> https://youtu.be/i_5pvt7ag7E?feature=shared&t=3347 
+
+
+random 
+- instead of char name[100] why we do name = new char[100]? 
+- second one is good practice as memory is allocated in heap and we have more memory available in heap. 
+
+Shallow and deep copy 
+- Default copy constructor does shallow copy
+- A shallow copy copies the array and maintains references to the original objects.
+-A deep copy will copy (clone) the objects too so they bear no relation to the original. Implicit in this is that the object themselves are deep copied. This is where it gets hard because there's no real way to know if something was deep copied or not.
+
+
+Copy Assignment operator 
+- Say two objects are already declared a and b 
+- now using a = b will copy values of b to a. This is copy assign. operator 
+
+Destructor 
+- To deallocate memory 
+- name of destructor is same as class name, automatically created
+- no return type and no parameters 
+- What is diff in constructor and destrctor if name is same? 
+- Destrctor is with ~ sign . eg. ~Hero(){cout<<"destructor is called"<<endl; }
+- imp. For objects created statically , destructor is called automatically. 
+- for object created dynamically( by using new keyword) we have to call it manually. ( by saying 'delete b')
+
+
+Const keyword 
+- const int a = 10; 
+- const int b; -> this is wrong. The const variable cannot be left un-initialized at the time of the declaration.
+- Also, It cannot be assigned value anywhere in the program.
+Explicit value needed to be provided to the constant variable at the time of declaration of the constant variable.
+
+
+const member funtion 
+- int get_data() const
+    {
+        // Error while attempting to modify the data
+        // member
+        ++x;
+        return x;
+    }
+- A function becomes const when the const keyword is used in the function’s declaration. The idea of const functions is not to allow them to modify the object on which they are called.
+
+
+Initializtion list 
+- ?? 
+
+Static keyword 
+- Create data member which belongs to class and not to object
+- We don't need object to access static member 
+- When a variable is declared as static, space for it gets allocated for the lifetime of the program. Even if the function is called multiple times, space for the static variable is allocated only once and the value of the variable in the previous call gets carried through the next function call. 
+- remeber static bool cmp for sorting array ? 
+- Static variables in a class: As the variables declared as static are initialized only once as they are allocated space in separate static storage so, the static variables in a class are shared by the objects. There can not be multiple copies of the same static variables for different objects. Also because of this reason static variables can not be initialized using constructors. 
+- https://www.geeksforgeeks.org/static-keyword-cpp/ -> must read 
+- We are allowed to invoke a static member function using the object and the ‘.’ operator but it is recommended to invoke the static members using the class name and the scope resolution operator.
+- cout<<Hero :: staticnumber<<endl; 
+
+static function 
+- Same like staic datatype, object create karne ki jaroorat nahi hai 
+- they don't have this keyword as there is no object for static functions. FYI 'this' keyword is for pointer ref to object. 
+- Static functions can access only static members. 
+- 
