@@ -1,3 +1,10 @@
+Articles : https://www.hackerearth.com/practice/basic-programming/bit-manipulation/basics-of-bit-manipulation/tutorial/
+MUST READ
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+learn about 2's complement and represeatnation of intmax and intmin - signed and unsigned bit - refer to cs1100 slides 
+
+_____________________________________________________________________________________________________________________________________________________________________
+
 Why need bit manipulation? 
 As as programmer we deal with data. if it's an integer it's stored in data container called as 'int' in cpp, if it's decimal then we store it in float or double. if data is complex then graphs , linkedlist and so on. But if programmer wants to go in deeper level of manipulation , something which is closer to system. Then he has to deal with bits and bytes. 
 eg. Operations with bits used in data compression. Data encryption ( Exclusive-or Encryption).In order to encode, decode or compress files we have to extract the data at bit level. Bitwise Operations are faster and closer to the system and sometimes optimize the program to a good level.
@@ -15,12 +22,7 @@ In microcontrollers - when the output is high it's 1 and if it's low then it's 0
     for finding inverse we use 2's complement method 
 3. 2's complement - invert all bits and add 1 
 4. note that while inverting - all bits before actual number are acully 0 so after invering it becomes 1 
-5. & is a bitwise operator and compares each operand bitwise.
-    It is a binary AND Operator and copies a bit to the result if it exists in both operands.
-    Assume integer variable A holds 60 and variable B holds 13 then  
-    (A & B) will give 12 which is 0000 1100.
-    Whereas && is a logical AND operator and operates on boolean operands. If both the operands are true, then the condition becomes true otherwise it is false. Assume boolean variable A holds true and variable B holds false then (A && B) is false.
-    & is to be used during bitwise operations and && is useful during logical operations.
+
 6. Xor (^) - when both bits are different then it is 1 otherwise 0 
 7. The ~ (bitwise NOT) takes one number and inverts all bits of it.
 8. The << (left shift) takes two numbers, the left shifts the bits of the first operand, and the second operand decides the number of places to shift. Left shift is equivalent to multiplying the bit pattern with 2^k.
@@ -38,7 +40,7 @@ In microcontrollers - when the output is high it's 1 and if it's low then it's 0
 if ((n ^ 1) == (n + 1))
         return even;
 else it's odd
-12. Checking with OR Operator -  bitwise OR Operation of the Number by 1 increment the value of the number by 1 if the number is even otherwise it will remain unchanged.
+12. Checking with OR Operator -  value of the number increase by 1 if the number is even otherwise it will remain unchanged.
 	if ((n | 1) > n)
         return even;
         else odd
@@ -63,7 +65,18 @@ else it's odd
 log2n is basically how many times you have halve the 'n' number . So number of bits in number is equal to how many times you can halve the number + the remainder.
 
 ------------------------------------------------------------------------------------------------------------------------------ 
+Counting Set Bits : 
+Brian Kernighan’s Algorithm: 
+Subtracting 1 from a decimal number flips all the bits after the rightmost set bit(which is 1) including the rightmost set bit. 
+for example : 
+10 in binary is 00001010 
+9 in binary is 00001001 
+8 in binary is 00001000 
+7 in binary is 00000111 
+So if we subtract a number by 1 and do it bitwise & with itself (n & (n-1)), we unset the rightmost set bit. If we do n & (n-1) in a loop and count the number of times the loop executes, we get the set bit count. 
 
+Method bits : In GCC, we can directly count set bits using __builtin_popcount(). So we can avoid a separate function for counting set bits. Time complexity - O(n) 
+------------------------------------------------------------------------------------------------------------------------------ 
 Find number of bits in number 
 Method 1 : use formula log2n + 1 
 Method 2 : use left shift operator 
@@ -82,13 +95,34 @@ Method 2 : use left shift operator
         and while right shifing check if it's odd or even means uska last bit 1 hai ya 0 hai and count++
         this loop run for log2n + 1 times 
     better approach : 
-        if given number is n then find n & (n-1) till it becomes '0' 
-        this one operation make the last significant set bit = 0 
-        so this loop will run for number of set bits in binary representation 
-        set bit is basically '1' 
-
+       Use Brian Kernighan's algorithm - to find number of set bits 
+------------------------------------------------------------------------------------------------------------ 
+highest-power-2-less-equal-given-number 
+Brute force : multiply 1 with 2 until it is more than given number
+Method 1 : take log of number and then pow the number. If n = 17 then log(17) = 4 and then pow( 2,4) = 16 
+Method 2 : Bit manipulation  - When you have a number n (that is not a power of 2), the largest power of 2 that is less than n is always the most significant bit in n. In case of a number n that is a power of 2
+		For a number 'n'  subtrace 1 to get n - 1 
+		now n-1 will have bits from least significant bit flipped . Basically from righmost bit '1' it will flip 
+		10 -> 1010   9 ->1001      8-> 1000    7 -> 0111 
+		So if you take & of n and n-1 , you are eliminating least significant set bit. 
+		so if n is not power of 2 then do n = n & ( n-1) till it becomes power of 2 
+		
+public class MathPow{
+   public int largestPowerOf2(int n){
+      if((n & n-1) == 0){ //this checks if n is a power of 2
+         n--; //Since n is a power of 2 we have to subtract 1
+      }
+      while((n & n-1) != 0){ //the while will keep on going until n is a power of 2, in which case n will only have 1 bit on which is the maximum power of 2 less than n. You could eliminate the != 0 but just for clarity I left it in
+         n = n & n-1; //we will then perform the bitwise operation AND with n and n-1 to eliminate the least significant bit of n 
+      }
+      return n;
+   }
+}
 
 ------------------------------------------------------------------------------------------------------------ 
+
+
+
 
 Advance bit manipulation 
 
@@ -106,4 +140,18 @@ Q. find the two non repeating elements in array where every element repeats twic
 
 Q. find rightmost set bit - > 
 	n & ~(n-1) 
+	
+Q.Find only non repeating element where all other elements are repeating thrice
+Sol - 
+
+Explanation - https://www.youtube.com/watch?v=cOFAmaMBVps
+ So there are couple of methods ; 
+ Method 1 : Sorting - Sort the array and find out which number is not repeating at all. 
+ 	Time complexity - NlogN + N , but here are trick. Since N can not be more than Int max . log2(N) < 32 . Thus in worst case time complexity is O(32*N) 
+Method 2 : count the bits methods
+	you have to check which bit is occuring 3n+1 times 
+	say arry is 2 2 3 2 - so if we sum the bits positionwise it will be 0 4 1 
+ 	so at position 0 and 1 , it is not multiple of three
+ 	So in this methos - in best, worst and avg complexities are O(32*N) 
+ 	This makes sorting a lil better approach
     

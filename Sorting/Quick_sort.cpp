@@ -42,6 +42,7 @@ void quickSort(int arr[], int low, int high) {
   int partitionIndex; // Index of pivot after partition
 
   if (low < high) {
+    // low less than high means it has more than one element. One element array is sorted anyway. 
     partitionIndex = partition(arr, low, high);
     quickSort(arr, low, partitionIndex - 1); // sort left subarray
     quickSort(arr, partitionIndex + 1, high);  // sort right  subarray

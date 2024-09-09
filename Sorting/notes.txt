@@ -62,6 +62,22 @@
 
 1. In quick sort we chose a pivot element and make sure that that pivot element finally ends up in 
  position such that all elements left to it are less than pivot while all elements left to it are bigger than pivot. 
+ 1. So after the first pass , when right has crossed left. We have all the numbers smaller than pivot to left of crossing poing, 
+ and greater than pivot on right side of crossing poing. 
  2. This means the pivot element is at it's final sorted postion now. We don't need to move it. 
  3. quick sort works on divide and conquer concept - once asked in test. 
- 4.
+ 4. At the end of the day we are picking the pivot and placing it at it's right place - so choosing the pivot does not matter 
+ 5. How to find partition index - so we will have two pointer i and j. I starting from beginning of array and j 
+ from end of array. When j found element which is smaller than pivot - but if this happend after i has crossed j 
+ this means j has already reached other territory. and j is standing on the pivot point. 
+ 6. Also, here we are not creating any new arrays. We are using two pointers to work with section of array
+ 
+ 
+ ************************* Merge sort ****************************** 
+ 
+ 1. Recursive Procedure , divide and conquer procedure 
+ 2. how to time is nlogn - https://youtu.be/mB5HXBb_HY8?feature=shared&t=654 
+ 	basically for every level we need 'n' time and there are log(n) levels so nlogn
+ 	
+ 	
+ 	****************************************** Radix Sort ****************

@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 void printArray(int arr[], int n) {
-  // here we can't use size of fuction to find length of arrya
+  // here we can't use size fuction to find length of arrya
   // As we are passing a array pointer and not the array
   for (int i = 0; i < n; i++) {
     cout << arr[i] << " ";

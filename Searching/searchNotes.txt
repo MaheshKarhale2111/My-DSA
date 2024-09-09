@@ -8,7 +8,7 @@ Binart search :
     again find the mid and repeat the process 
 3. In binary search one very important point is while fingding mid 
     instead of (start + end )/2 write  start + (end - start)/2 -> to ovoid int flow error 
-4. Time complexity - each step decreasing size of array - o(logn) 
+4. Time complexity - each step decreasing size of array- or having the array so O(log2n)  
 5. Derivation - each step denoted by N/2, N/4, N/8 .... N/2^k  and we know N/2^k = 1 
    only one index will left 
    rearranging  N = 2^k or k = log (N) where k is number of steps 
@@ -23,3 +23,8 @@ Binary search for matrix
 
 first fix row by doing mat[i][0] and mat[i][n] limits 
 then once row is fixed you can use binary search on selected row
+
+
+------------------------------------------------------------------------------------------------------------------- 
+Moore's Voting Algorithm - 	que - majority element in array appearing N/2 times 
+

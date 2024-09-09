@@ -1,10 +1,21 @@
-1. Root, Parent, Child , Leaf/ External Node 
-1. Tree is non lineear data structure. Ideal for representing hierarchical data. 
+Q. What are trees, binary trees? 
+Ans :  Tree is non lineear data structure. Ideal for representing hierarchical data. Difference between linear and non linear data structure is that , in linear one the ele
+element are arranged in linear fashion - to be more specific the order of elements is important and we can traverse the entire data structure in one run. Linear data 
+structures are easy to implement as computer memory is arranged in linear way. 
+In non linear data structures, it's not singles level 
+uses : complex relationships, hierachy, social networks, file systems, huffman coding - data compression technique
+
+Q. Tell example of tree in real life 
+Ans. The Filesystems. So whenver we open my files/my computer. Under each drive we have multiple folders representing the nodes. In linux we have something 
+as root user. The the who controls the topmost node /file directory. 
+Ans2 : in document object model of HTML. There html tag under which there are head and body tags. And they have their own children. 
+So lets say by using javascript I want to get hold of all the 'p' tags (const paragraphs = document.querySelectorAll("p");) then this code will run a search through
+entire DOM tree. For one specific branch once it reached it's end it will traversed back - dfs search. 
+READ THIS FOR DOM -  https://medium.com/@curtis-wilson/tree-data-structures-and-the-dom-e2f0a8463249
+
 2. Internal Node - Node with atleast one child 
 3. Depth : The depth of a node is the number of edges present in path from the root  to that node.
 4. Height : Vo node niche kaha tak utar sakta hai (deepest leaf)
-5. Sibling : NOdes belonging to same parent. 
-6. Ancestors and descendants : 
 
 ********** Binary Tree **************** 
 
@@ -13,6 +24,14 @@
 3. Degreas -> no of direct children
 4. Degree if a tree us a highest degree of a node among all the nodes present. 
 5. Use of binrary Tree ? 
+
+Disadvantages of binary tree : 
+1. Only two childs 
+2. For every node we have to maintain two child pointers - more memory 
+3. Slow performance in worst case senarios - skew tree where each node has only one child - so O(n) time required 
+4. If tree is not balanced - if one subtree is larger than the other - the search operations are not efficient. 
+
+
 
 
 ---------- Types of Binary Tree --------------------------------

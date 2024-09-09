@@ -1,4 +1,4 @@
-1. Graph is type of data structure which is comibination of notes and edges. 
+1. Graph is type of data structure which is combination of nodes and edges. 
 2. Use to model wide range of real world scenarios like social network , computer networks 
    transportation systems. 
 3. A tree is a connected graph that consists of n nodes and n−1 edges. There is

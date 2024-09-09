@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 /*
-The operations in stack 
+The operations in stack
 isEmpty()
 isFull()
 Push()
@@ -10,39 +10,56 @@ Peek()
 are done in constant time so time complexity is O(1)
 
 */
-class stacks {
+class stacks
+{
 public:
   int size;
   int top;
   int *arr;
 };
-void push(stacks *ptr, int value) {
-  if (ptr->top == ptr->size - 1) {
+void push(stacks *ptr, int value)
+{
+  if (ptr->top == ptr->size - 1)
+  {
     cout << "Stack Overflow and cannot push" << value << endl;
-  } else {
+  }
+  else
+  {
     ptr->top++;
     ptr->arr[ptr->top] = value;
   }
 }
-void pop(stacks *ptr) {
-  if (ptr->top == -1) {
+void pop(stacks *ptr)
+{
+  if (ptr->top == -1)
+  {
     cout << "Stack Underflow " << endl;
-  } else {
+  }
+  else
+  {
     ptr->top--;
   }
 }
-void print(stacks *ptr) {
-  while (ptr->top != -1) {
+void print(stacks *ptr)
+{
+  while (ptr->top != -1)
+  {
     cout << ptr->arr[ptr->top] << endl;
     ptr->top--;
   }
 }
-int main() {
+int main()
+{
   ios_base::sync_with_stdio(false);
   cin.tie(NULL);
 
   stacks *sp;
   sp = new stacks();
+
+  /*
+  new stacks() dynamically allocates memory for an object of type stacks and calls its constructor.
+The new keyword returns a pointer to the newly allocated and constructed object.
+sp now points to this new stacks object.*/
   sp->size = 10;
   sp->top = -1;
   sp->arr = new int(sp->size);

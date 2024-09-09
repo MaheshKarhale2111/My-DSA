@@ -1,0 +1,18 @@
+1.Usually used in dynamic graphs, where configuration of graphs is changing. 
+2. gives you two functions - find parents and union 
+
+Time complexity 
+ for union it's O(4*alpha) which is equivalent to constant time 
+ for find parent -> same as above 
+ 
+
+Why connect smaller to larger? 
+To reduce travel time. 
+Say you have two graphs of length 4 and 2. 
+if you connect 4 wala to head of 2, the path find time for all nodes in 4 wala increase by one 
+in opposite case if you connect 2 wala to 4, time will increase but only of 2 nodes while in previous case it was increasing for 4 nodes. 
+Thus you should connect smaller to bigger one. 
+
+UNION By Size 
+IN union by rank we had rand and parents arrays. 
+Here we are having size and parents array where size of each node at start = 1; 
