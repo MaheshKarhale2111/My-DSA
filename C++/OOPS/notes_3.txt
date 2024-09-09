@@ -1,0 +1,2 @@
+Try catch block 
+https://www.geeksforgeeks.org/exception-handling-c/ 

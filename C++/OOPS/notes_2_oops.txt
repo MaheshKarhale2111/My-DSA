@@ -70,6 +70,17 @@ Run time polymorphism - function overriding
 - no. of argument shd be same 
 - inheritance is importnat ( obv)
 
+
+Virtual Function 
+- A virtual function is a member function that is declared in the parent class using the keyword virtual and is re-defined (Overridden) in the child class.
+- Basically function overriding but reverse; 
+- Virtual functions are Dynamic in nature. 
+- They are defined by inserting the keyword “virtual” inside a base class and are always declared with a base class and overridden in a child class
+- A virtual function is called during Runtime
+- Virtual function should be public 
+- If a virtual function is private, the derived class cannot access or override it because private members are not visible to derived classes.
+If it is protected, it can be overridden by the derived class but won’t be accessible to external code, making it harder to invoke polymorphic behavior directly from outside the class hierarchy.
+
 --------------------------------------------------------- 
 
 Abstraction - implementation hiding 
