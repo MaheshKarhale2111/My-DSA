@@ -10,7 +10,7 @@ public:
         a = n1;
         b = n2;
     } // Below line means that non member sumcomplex function is allowed to do anything with my private parts
-    friend complex sumcomplex(complex o1, complex o2);
+    friend complex sumcomplex(complex, complex);
     void print()
     {
         cout << "Your number is " << a << " +" << b << "i" << endl;

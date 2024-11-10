@@ -1,6 +1,6 @@
 Why oops? 
-In real life each object has entity which has state/property and behaviour. 
-We want to increase relability of code and make it close to real life. 
+In real life, each object has an entity that has state/property and behaviour. 
+We want to increase the reliability of code and make it close to real life. 
 
 What is class 
 User defined datatype

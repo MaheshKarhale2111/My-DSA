@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+
 void printArray(int arr[], int n) {
   // here we can't use size of fuction to find length of arrya
   // As we are passing a array pointer and not the array
@@ -10,34 +11,43 @@ void printArray(int arr[], int n) {
   cout << endl;
 }
 
-void selectionSort(int arr[], int n) {
-  // what selection sort basically do is
-  //
+int partition(int arr[], int low, int high){
 
-  int minindex, min;
+  int pivot = arr[low]; 
+  int i = low+1, j = high; 
 
-  for (int i = 0; i < n - 1; i++) {
-    min = arr[i];
-    minindex = i;
-
-    for (int j = i + 1; j < n; j++) {
-      if (arr[j] < min) {
-        min = arr[j];
-        minindex = j;
-      }
+  do {
+    while(arr[i] <= pivot){
+      i++; 
     }
-    swap(arr[i], arr[minindex]);
-    // printArray(arr, n);
-  }
+
+    while(arr[j] >= pivot){
+      j--; 
+    }
+
+    if(i < j ) swap(arr[i], arr[j]); 
+  } while(i < j);
+
+  swap(arr[low],arr[j]); 
+  return j; 
 }
 
-int main() {
-  int A[] = {200, 330, 100, 4};
-  int C[] = {20, 4, 6, 3, 7, 8};
-  int B[] = {1, 2, 5, 6}; // sorted array
-  int n = sizeof(A) / sizeof(int);
-  selectionSort(A, n);
-  printArray(A, n);
+void quickSort(int arr[], int low , int high){
 
-  return 0;
+  if(low >= high) return; 
+
+  int partitionIndex = partition(arr,low,high); 
+
+  quickSort(arr,low,partitionIndex-1); 
+  quickSort(arr,partitionIndex+1,high); 
+
+}
+
+int main(){
+  int A[] = {200, 3, 50, 4};
+  // int B[] = {1, 2, 5, 6}; // sorted array
+  int n = sizeof(A) / sizeof(int);
+  printArray(A, n);
+  quickSort(A, 0, n - 1);
+    printArray(A, n);
 }

@@ -4,7 +4,7 @@
 2. Space complexity - The space Complexity of an algorithm is the total space taken by the algorithm with respect to the input size
   -> Inplace sorting algorithm - Constant memory usagae, not growing with size 
                                 Mostly swaping, rearranging Algorithms
-3. Stability
+3. Stability- keep the relative order same 
 4. Internal vs External sorting algo 
     -> Internal - All data loaded in memory
     -> External - All data not loaded in memory 

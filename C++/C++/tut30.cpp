@@ -1,6 +1,6 @@
 #include<iostream>
 using namespace std;
-
+// is parameterzed constructor
 class complex {
     int a,b;
      public:
